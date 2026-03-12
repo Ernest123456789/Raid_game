@@ -65,8 +65,12 @@ res.json({ok:true})
 
 })
 
-app.listen(3000,()=>{
+app.get("/", (req,res)=>{
+res.sendFile(__dirname + "/public/index.html")
+})
 
+app.listen(3000,()=>{
 console.log("Server started")
 
 })
+
