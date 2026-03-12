@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Crazy Hren</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+</head>
+
+<body>
+
+<div id="topbar">
+
+<div class="logo">
+CRAZY HREN
+</div>
+
+<div id="resources">
+
+<div class="res">
+<img src="assets/items/energy.png">
+<span id="energy">0</span>
+</div>
+
+<div class="res">
+<img src="assets/items/metal.png">
+<span id="metal">0</span>
+</div>
+
+<div class="res">
+<img src="assets/items/wood.png">
+<span id="wood">0</span>
+</div>
+
+</div>
+
+</div>
+
+<div id="game">
+
+<div id="baseScreen" class="screen active">
+
+<div class="room" id="generator">
+
+<img src="assets/rooms/room_generator.png">
+
+<div class="workers" id="generatorWorkers"></div>
+
+</div>
+
+<div class="room" id="mine">
+
+<img src="assets/rooms/room_mine.png">
+
+<div class="workers" id="mineWorkers"></div>
+
+</div>
+
+<div class="room" id="storage">
+
+<img src="assets/rooms/room_storage.png">
+
+<div class="workers" id="storageWorkers"></div>
+
+</div>
+
+</div>
+
+
+<div id="exploreScreen" class="screen">
+
+<div class="explore">
+
+<h2>Исследование</h2>
+
+<button id="exploreBtn">
+Отправить работника
+</button>
+
+<div id="exploreTimer"></div>
+
+</div>
+
+</div>
+
+
+<div id="mapScreen" class="screen">
+
+<div class="map">
+
+<img src="assets/map/map_bg.png" class="mapbg">
+
+<div class="npc easy">Лагерь</div>
+<div class="npc medium">Рейдеры</div>
+<div class="npc boss">Monkeyz</div>
+
+</div>
+
+</div>
+
+
+<div id="inventoryScreen" class="screen">
+
+<h2>Инвентарь</h2>
+
+<div id="inventory"></div>
+
+</div>
+
+</div>
+
+<div id="menu">
+
+<button data-screen="baseScreen">🏠</button>
+<button data-screen="exploreScreen">🔎</button>
+<button data-screen="mapScreen">🗺</button>
+<button data-screen="inventoryScreen">🎒</button>
+
+</div>
+
+<script src="main.js"></script>
+
+</body>
+</html>
