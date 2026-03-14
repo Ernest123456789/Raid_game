@@ -2,7 +2,13 @@ let tg = window.Telegram.WebApp
 
 tg.expand()
 
-let tg_id = tg.initDataUnsafe.user.id
+let tg_id = 0
+
+if (tg.initDataUnsafe && tg.initDataUnsafe.user){
+    tg_id = tg.initDataUnsafe.user.id
+}else{
+    tg_id = "debug_user"
+}
 
 let energy = 0
 let metal = 0
@@ -11,7 +17,8 @@ let wood = 0
 let workers = [
 "generator",
 "mine",
-"mine"
+"mine",
+"storage"
 ]
 
 fetch("/login",{
@@ -61,13 +68,14 @@ document.getElementById("storageWorkers").innerHTML=""
 
 workers.forEach(room=>{
 
-let w=document.createElement("div")
+let w = document.createElement("div")
+w.className = "worker"
 
-w.className="worker"
+let container = document.getElementById(room+"Workers")
 
-document
-.getElementById(room+"Workers")
-.appendChild(w)
+if(container){
+container.appendChild(w)
+}
 
 })
 
@@ -127,16 +135,18 @@ document.getElementById("exploreTimer").innerText=
 
 document.querySelectorAll("#menu button").forEach(btn=>{
 
-btn.onclick=()=>{
+btn.addEventListener("click", ()=>{
 
-document
-.querySelectorAll(".screen")
-.forEach(s=>s.classList.remove("active"))
+document.querySelectorAll(".screen").forEach(s=>{
+s.classList.remove("active")
+})
 
-document
-.getElementById(btn.dataset.screen)
-.classList.add("active")
+let screen = document.getElementById(btn.dataset.screen)
 
+if(screen){
+screen.classList.add("active")
 }
+
+})
 
 })
